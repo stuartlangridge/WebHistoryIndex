@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Stuart's web history search",
+  "description": "Hands off content of all viewed pages to the search engine",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["grabPage.js"]
+    }
+  ]
+}

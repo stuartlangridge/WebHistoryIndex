@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search your web history</title>
+</head>
+<body>
+<h1>Stuart's web history searcher</h1>
+<form>
+<input type="search" name="q" value="{{q}}">
+<input type="submit">
+</form>
+{% if q %}
+    {% if not results %}
+    <p>No matches for {{q}}.</p>
+    {% endif %}
+{% endif %}
+{% if results %}
+<hr>
+<dl>
+{% for r in results %}
+    <dt><a href="{{r.url}}">{{r.title}}</a> ({{r.dt}})</dt>
+    <dd>{{r.extract|safe}}</dd>
+{% endfor %}
+</dl>
+{% endif %}
+</body>
+</html>
