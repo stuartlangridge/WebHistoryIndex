@@ -27,5 +27,5 @@ Only for Chrome right now, I'm afraid. In Chrome, go to <a href="chrome://extens
 
 # Using it
 
-Go to <a href="https://localhost:5150">https://localhost:5150</a>. It will whine at you about it being unsafe, because it's using SSL but without a certificate. Don't worry about it; just click "let me at it anyway, I know better than you, you shonky overbearing nanny of a browser" (or something like that), and it'll let you through. Search in the box; see results; Robert's your mother's brother.
+Go to <a href="http://localhost:5150">http://localhost:5150</a>. Search in the box; see results. Robert's your mother's brother.
 
