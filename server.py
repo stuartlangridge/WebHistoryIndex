@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, jsonify
 from whoosh.index import create_in
 from whoosh.fields import Schema, TEXT, DATETIME, ID
 from whoosh.qparser import QueryParser
+from whoosh.writing import AsyncWriter
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -43,7 +44,7 @@ def add():
     if not url or not content: return jsonify({"status": "missing parameters"})
     if urlparse.urlparse(url).netloc.startswith("localhost"): return  jsonify({"status": "ignored"})
     ix = get_index()
-    writer = ix.writer()
+    writer = AsyncWriter(ix)
     soup = BeautifulSoup(content)
     # kill all script and style elements
     for script in soup(["script", "style"]):
@@ -65,4 +66,4 @@ def add():
     return jsonify({"status": "ok"})
 
 if __name__ == "__main__":
-    app.run(port=5150, debug=True, ssl_context="adhoc")
+    app.run(port=5150, debug=True)

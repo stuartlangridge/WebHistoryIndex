@@ -10,5 +10,9 @@
       "matches": ["http://*/*", "https://*/*"],
       "js": ["grabPage.js"]
     }
-  ]
+  ],
+  "background": {
+    "scripts": ["sendPage.js"],
+    "persistent": false
+  }
 }

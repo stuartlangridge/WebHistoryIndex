@@ -1,11 +1,8 @@
+/* Runs in browser context; grabs the page title, url, HTML and sends it to sendPage */
 var t = document.querySelector("title"), title = location.href;
 if (t && t.textContent) { title = t.textContent; }
-var send = {
+chrome.runtime.sendMessage({
     url: location.href,
     title: title,
     content: document.documentElement.outerHTML
-};
-var x = new XMLHttpRequest();
-x.open("POST", "https://localhost:5150/add", true);
-x.setRequestHeader("Content-Type", "application/json");
-x.send(JSON.stringify(send));
+}, function(response) {});
